@@ -2,7 +2,7 @@ package routes
 
 import "net/http"
 
-// Route represents all API wheels
+// Route represents all API routes
 type Route struct {
 	URI                    string
 	Method                 string
