@@ -20,6 +20,7 @@ func main() {
 
 	// Print the connection port to the terminal.
 	fmt.Println(fmt.Sprintf("Listening to port %d...", config.ConnectionPort))
+
 	// Starts the http server using the port from the config package.
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.ConnectionPort), r))
 }
