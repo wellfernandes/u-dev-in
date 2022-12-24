@@ -13,8 +13,8 @@ type Route struct {
 	RequiresAuthentication bool
 }
 
-// Config_route put all routes inside the router.
-func Config_route(r *mux.Router) *mux.Router {
+// ConfigRoute put all routes inside the router.
+func ConfigRoute(r *mux.Router) *mux.Router {
 	routes := userRoutes
 
 	for _, route := range routes {
