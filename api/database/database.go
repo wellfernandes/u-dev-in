@@ -3,22 +3,23 @@ package database
 import (
 	"api/config"
 	"database/sql"
+	"fmt"
 
 	_ "github.com/go-sql-driver/mysql" // MySQL driver
 )
 
 // OpenConnection open the connection to the database.
-func OpenConnection() (*sql.DB, error) {
-
-	db, err := sql.Open("mysql", config.ConnectionStringDB)
+func main() {
+	db, err := sql.Open("mysql", config.GetConfig().DbConn)
 	if err != nil {
-		return nil, err
+		panic(err.Error())
+	}
+	defer db.Close()
+
+	err = db.Ping()
+	if err != nil {
+		panic(err.Error())
 	}
 
-	if err = db.Ping(); err != nil {
-		db.Close()
-		return nil, err
-	}
-
-	return db, nil
+	fmt.Println("Successfully connected to MySQL database!")
 }

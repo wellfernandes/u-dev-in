@@ -1,0 +1,5 @@
+type User struct {
+	UserID   uint64
+	Name     string
+	LastName string
+}
